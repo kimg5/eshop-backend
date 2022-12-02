@@ -34,7 +34,7 @@ router.get("/products",isAdmin, async (req, res) => {
 });
 
 router.get("/products/:productId",isAdmin, async (req, res) => {
-  const content = await adminService.getProducts(req.params.productId);
+  const content = await adminService.getProduct(req.params.productId);
   res.send(content);
 });
 

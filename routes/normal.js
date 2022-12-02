@@ -29,4 +29,9 @@ router.patch("/orders/cancel/:orderId", isLogin, async (req, res) => {
     res.send(content);
 });
 
+router.post("/orders", isLogin, async (req, res) => {
+    const content = await normalService.createOrders(req);
+    res.send(content);
+});
+
 module.exports = router;

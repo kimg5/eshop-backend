@@ -73,9 +73,7 @@ exports.updateProfile = async (req) => {
 
 exports.getOrders = async (req) => {
   const user = await getUserFromToken(req);
-  console.log(user._id);
   const orders = await orderModel.find({ userId: user._id }).sort({ createAt: 1 });
-  console.log(orders);
   if (orders) return respContent(true, "", orders);
   throw new Error("No orders found");
 };
@@ -87,3 +85,22 @@ exports.cancelOrder = async (req) => {
   if (row.modifiedCount === 1) return respContent(true, "");
   throw new Error("The order " + orderId + " cannot be canceled");
 };
+
+exports.createOrders = async (req) => {
+    const user = await getUserFromToken(req);
+
+    const order = {
+        userId: user._id,
+        username: user.username,
+        email: user.email,
+        card: user.card,
+        shippingFee: req.body.shippingFee||0,
+        total: req.body.total,
+        status: 'open',
+        createdAt: Date.now(),
+        items:req.body.items
+      };
+      const content = await orderModel.create(order);
+      return respContent(true, "The order is created successfully", content._id);
+    
+  };
