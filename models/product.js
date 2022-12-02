@@ -39,9 +39,6 @@ const ProductSchema = new mongoose.Schema({
   stock: {
     type: Number,
   },
-  description: {
-    type: String,
-  },
   rates: {
     type:Number,
   },
