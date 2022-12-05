@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
       if (isSame) {
         const message = "Successful login";
         const token = jwt.sign({ id: String(user._id), role: user.role }, SECRET,{expiresIn:'6h'});
-        resMsg = { success: true, message: message, token };
+        resMsg = { success: true, message: message, content:{role: user.role,token} };
       }
     }
   }
