@@ -18,7 +18,10 @@ const UserSchema = new mongoose.Schema({
   card: {
     type: String,
     required: true,
-  }  
+  },
+  status: {
+    type: String,
+  },  
 });
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

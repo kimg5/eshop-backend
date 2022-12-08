@@ -19,6 +19,13 @@ exports.deleteUser = async (req) => {
   throw new Error("The user " + req.params.userId + " cannot be deleted");
 };
 
+exports.updateUser = async (req) => {
+  console.log("Updating user");
+  const row = await userModel.findByIdAndUpdate(req.params.userId,{$set:{status:req.params.status}}).exec();
+  if (row) return respContent(true, "The user deleted successfully",row);
+  throw new Error("The user " + req.params.userId + " cannot be update");
+};
+
 exports.getOrders = async () => {
   const orders = await orderModel.find().sort("-createdAt");
   if (orders) return respContent(true, "Orders found", orders);

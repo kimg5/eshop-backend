@@ -17,6 +17,10 @@ router.delete("/user/:userId", isAdmin, async (req, res) => {
   res.send(content);
 });
 
+router.patch("/user/:userId/:status", isAdmin, async (req, res) => {
+  const content = await adminService.updateUser(req);
+  res.send(content);
+});
 
 router.get("/orders", isAdmin, async (req, res) => {
   const content = await adminService.getOrders();
