@@ -18,7 +18,7 @@ exports.getProfile = async (req) => {
 
 exports.updatePassword = async (req) => {
   const password = req.body.password;
-  const username = req.body.username;
+  const username = req.body.confirmPassword;
   const user = await getUserFromToken(req);
 
   const hashedPassword = await bcrypt.hash(password, saltRounds);
