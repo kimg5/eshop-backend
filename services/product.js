@@ -4,7 +4,7 @@ const respContent = (success, message, content) => {
   return { success: success, message: message, content: content };
 };
 const productsProjection = { image: 1, name: 1, price: 1, category: 1, _id: 1 };
-const productDetailProjection = { images: 1, name: 1, price: 1, colors: 1, available: 1, sku: 1, brand: 1, rate: 1, reviews: 1, _id: 1,description:1,image,1 };
+const productDetailProjection = { images: 1, name: 1, price: 1, colors: 1, available: 1, sku: 1, brand: 1, rate: 1, reviews: 1, _id: 1,description:1,image:1 };
 
 exports.getAllProducts = async () => {
   const products = await productModel.find({}, productsProjection);
