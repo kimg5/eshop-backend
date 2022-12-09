@@ -31,7 +31,8 @@ exports.search = async (searchKey, category, company, colors, price, shipping, s
     conditions.push({ name: { $regex: searchKey, $options: "i" } });
   }
   if (category && category != "All") {
-    conditions.push({ category: category });
+    let str = category.toLowerCase();
+    conditions.push({ category: str });
   }
   if (company && company != "All") {
     conditions.push({ company: company });
