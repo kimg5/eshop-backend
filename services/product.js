@@ -58,3 +58,9 @@ exports.search = async (searchKey, category, company, colors, price, shipping, s
   if (products) return respContent(true, "total : " + products.length, products);
   throw Error("Sorry, no products matched your search.");
 };
+
+exports.updateImages = async (req) => {
+  const result = await productModel.updateMany({price:{ $get:0} }, { $set: { image: "https://source.unsplash.com/random" } }).exec();
+  return respContent(true, "update many product images",result);
+  throw new Error("The order " + orderId + " cannot be canceled");
+};

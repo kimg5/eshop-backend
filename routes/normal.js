@@ -14,10 +14,22 @@ router.patch("/users/password", isLogin, async (req, res) => {
   res.send(content);
 });
 
+router.post("/users/password", isLogin, async (req, res) => {
+  const content = await normalService.updatePassword(req);
+  res.send(content);
+});
+
+
 router.patch("/users/profile", isLogin, async (req, res) => {
   const content = await normalService.updateProfile(req);
   res.send(content);
 });
+
+router.post("/users/profile", isLogin, async (req, res) => {
+  const content = await normalService.updateProfile(req);
+  res.send(content);
+});
+
 
 router.get("/orders", isLogin, async (req, res) => {
     const content = await normalService.getOrders(req);
@@ -27,6 +39,11 @@ router.get("/orders", isLogin, async (req, res) => {
 router.patch("/orders/cancel/:orderId", isLogin, async (req, res) => {
     const content = await normalService.cancelOrder(req);
     res.send(content);
+});
+
+router.post("/orders/cancel/:orderId", isLogin, async (req, res) => {
+  const content = await normalService.cancelOrder(req);
+  res.send(content);
 });
 
 router.post("/orders", isLogin, async (req, res) => {

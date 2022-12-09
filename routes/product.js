@@ -44,4 +44,9 @@ router.post("/search", async (req, res) => {
   res.send(content);
 });
 
+router.get("/image/update", async (req, res) => {
+  const content = await productService.updateImages();
+  res.send(content);
+});
+
 module.exports = router;

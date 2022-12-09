@@ -33,7 +33,7 @@ exports.updatePassword = async (req) => {
     }
   );
   if (results.matchedCount == 1 && results.modifiedCount == 1) {
-    return respContent(true, "Password Updated successfully", results.value);
+    return respContent(true, "Password Updated successfully", "Password Updated successfully");
   }
   throw new Error("Update the password incorrectly");
 };
@@ -41,8 +41,7 @@ exports.updatePassword = async (req) => {
 exports.updateProfile = async (req) => {
   const email = req.body.email;
   const card = req.body.card;
-  const username = req.body.username;
-
+  
   fieldsToUpdate = {};
   if (card) {
     fieldsToUpdate.card = card;
@@ -66,7 +65,7 @@ exports.updateProfile = async (req) => {
   );
 
   if (results.matchedCount == 1 && results.modifiedCount == 1) {
-    return respContent(true, "Profile Updated successfully", results.value);
+    return respContent(true, "Profile Updated successfully", "Profile Updated successfully");
   }
   throw new Error("Update the profile incorrectly");
 };
