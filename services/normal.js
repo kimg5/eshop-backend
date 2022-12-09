@@ -81,7 +81,7 @@ exports.cancelOrder = async (req) => {
   const user = await getUserFromToken(req);
   const orderId = req.params.orderId;
   const row = await orderModel.updateOne({ $and: [{ _id: orderId }, { userId: user._id }] }, { $set: { status: "canceled" } });
-  if (row.modifiedCount === 1) return respContent(true, "");
+  if (row.modifiedCount === 1) return respContent(true, "","order canceled");
   throw new Error("The order " + orderId + " cannot be canceled");
 };
 

@@ -40,12 +40,12 @@ exports.search = async (searchKey, category, company, colors, price, shipping, s
     conditions.push({ colors: colors });
   }
   if (price) {
-    conditions.push({ price: { $lt: price } });
+    conditions.push({ price: { $lt: price * 100} });
   }
   if (shipping) {
     conditions.push({ shipping: shipping });
   }
-
+  console.log(conditions);
   if(!sort) {
     sort ="-price";
   }  
