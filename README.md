@@ -18,4 +18,6 @@ The project based on Node JS with
 Install guider:
 1. clone the porject
 2. npm install
+3. add .evn file to the project root folder and give the password of your mongoDB
+   MONGODB_PWD = ${your password}
 
