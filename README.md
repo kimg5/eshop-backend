@@ -1,7 +1,8 @@
-It is the rest API backend subsystem for the eshop. Ihe features includes 
+It is the rest API backend subsystem for the eshop. The frontend project is in https://github.com/kimg5/eshop-frontend.git.
+Ihe features includes 
 1. provide the role based access control for API. That means API can be protected based on the users's role.
 2. The user's authatication is based on simply implementation of JWT( not include the time refreshing and security sign)
-3. provide the product related API
+3. provide the product related CRUD APIand users CRUD API
 
 The project based on Node JS with
 1. express framework
